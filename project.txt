@@ -1,0 +1,59 @@
+Description on how the ATM (Automatic Teller Machine) should work:
+
+MAIN MENU:
+1. Create Account
+
+2. Checkin
+    SUB MENU:
+    1. Account Detail
+    2. Deposit
+    3. Withdraw
+    4. Update pin
+    5. Check Statement
+    6. Logout
+
+3. Exit
+
+
+Once the program is started, take the input from the user what he wants to do. Above are the menu.
+1. Create Account:
+
+    Take the input of the user:
+        name
+        deposit amount (this should be more than 50)
+        pin_code (should be 4 digit)
+
+    Auto generate for the user:
+        id (should be 10 digits unique),
+        username (concatenate the name with any randomly generated number, remember it should be unique)
+        status (should be ACTIVE) initially
+        currency (should be PKR)
+        statement (add a transaction of deposit in the array)
+    Go to the newly created or already existing users.txt and save in the form of dictionary. Examples are already shared
+2. Checkin:
+    Should ask for the account number or username
+        If account number or username doesnot exists, show the message of user not found
+    Should ask for pincode:
+        3 times, if in correct update the users.txt and mark the user as BLOCKED
+    1. Account detail:
+        If the user is logged in, and wants to see his detail:
+        Go to the sub-menu and
+            Show his name, username, status, balance amount with currency
+    2. Deposit:
+        Ask for amount, update in the selected users.txt in balance_amount as well as pass an entry in the statement
+        Amount should not be less than 50
+        Go to the sub-menu and show the balance amount
+    3. Withdraw:
+        Apply 1% tax on the input amount and,
+        Check if the input amount + tax is not greater than amount balance
+        If not create and entry and deduct the amount from the balance
+        Go to the sub-menu and show the balance amount
+        Blocked user cannot withdraw unless status is ACTIVE again
+    4. Update pin:
+        If selected, ask for the previous pin and if correctly passed than update in the user.txt
+        Go to the sub-menu
+    5. Check statement:
+        Create a username_statement.txt file and pass every entry from the statement in separate line
+        Go to the sub-menu
+    6. Logout the user to the main menu
+3. Terminate the program
